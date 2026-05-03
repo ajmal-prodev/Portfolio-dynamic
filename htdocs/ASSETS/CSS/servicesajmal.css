@@ -1,0 +1,208 @@
+/*=============== services ===============*/
+.services__container{
+  row-gap: 2rem;
+}
+
+.services__card{
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 8px 16px hsla(0, 0%, 0%, .5);
+  transition: box-shadow .4s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.services__data{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: hsla(var(--hue), 8%, 8%, .4);
+  backdrop-filter: blur(16px);
+  display: grid;
+  place-content: center;
+  row-gap: .5rem;
+  text-align: center;
+  padding: 0 1rem;
+  border-radius: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .4s;
+}
+
+.services__title{
+  font-size: var(--h3-font-size);
+}
+
+.services__description{
+  font-size: var(--small-font-size);
+}
+
+.services__data .button{
+  justify-self: center;
+  background-color: hsla(var(--hue), 8%, 8%, .4);
+  margin-top: .5rem;
+}
+
+.services__card:hover{
+  box-shadow: 0 8px 16px hsla(var(--hue), 80%, 40%, .2);
+}
+
+.services__card:hover .services__data{
+  opacity: 1;
+  pointer-events: initial;
+}
+
+/* EXACT CENTERING FOR ALL DEVICES */
+.services__icons{
+  font-size: 100px;
+  color: var(--first-color);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.services__firsticon{
+  text-align: center;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (max-width: 320px) {
+  .container{
+    margin-bottom: 1rem;
+  }
+
+  .services__data{
+    padding-inline: .5rem;
+  }
+
+  .services__data .button{
+    padding: 0.5rem .75rem;
+  }
+
+  .services__card{
+    min-height: 200px;
+  }
+
+  .services__icons{
+    font-size: 90px;  /* Increased from 60px */
+    padding: 0;
+  }
+}
+
+/* For devices between 321px and 539px (including Oppo A17) */
+@media screen and (min-width: 321px) and (max-width: 539px) {
+  .services__container{
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+  
+  .services__card{
+    min-height: 280px;
+  }
+  
+  .services__icons{
+    font-size: 120px;  /* Increased from 70px - much bigger! */
+    padding: 0;
+  }
+  
+  .services__firsticon{
+    font-size: 1.3rem;  /* Slightly bigger text too */
+  }
+}
+
+/* For medium devices */
+@media screen and (min-width: 540px) {
+  .services__container{
+    grid-template-columns: 400px;
+    justify-content: center;
+  }
+  
+  .services__icons{
+    font-size: 150px;
+    padding: 0;
+  }
+  
+  .services__firsticon{
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .services__card{
+    min-height: 350px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .services__container{
+    grid-template-columns: repeat(2, 350px);
+  }
+
+  .services__icons{
+    font-size: 150px;
+    padding: 0;
+  }
+  
+  .services__firsticon{
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .services__card{
+    min-height: 350px;
+  }
+}
+
+/* For large devices */
+@media screen and (min-width: 1150px) {
+  .container{
+    margin-inline: auto;
+  }
+
+  .section{
+    padding-block: 7rem 2rem;
+  }
+
+  .section__title{
+    margin-bottom: 3rem;
+  }
+
+  .projects, .services{
+    padding-block: 8rem 4rem;
+  }
+
+  .services__container{
+    grid-template-columns: repeat(3, 350px);
+    gap: 2rem 3rem;
+  }
+
+  .services__data .button{
+    margin-top: 1rem;
+  }
+
+  .services__icons{
+    font-size: 150px;
+    padding: 0;
+  }
+  
+  .services__firsticon{
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .services__card{
+    min-height: 350px;
+  }
+}

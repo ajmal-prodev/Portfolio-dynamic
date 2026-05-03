@@ -1,0 +1,220 @@
+/*=============== CONTACT ===============*/
+.contact__container {
+    row-gap: 4rem;
+}
+
+.contact__form {
+    position: relative;
+    row-gap: 1rem;
+}
+
+.contact__input {
+    width: 100%;
+    background: var(--body-color);
+    color: var(--white-color);
+    border: 2px solid var(--first-color);
+    outline: none;
+    padding: 1.25rem 1rem;
+    border-radius: .5rem;
+}
+
+.contact__input::placeholder {
+    color: var(--gray-color);
+}
+
+.contact__area {
+    height: 10rem;
+    resize: none;
+}
+
+.contact__form .button {
+    cursor: pointer;
+}
+
+.contact__message {
+    position: absolute;
+    bottom: -2rem;
+    font-size: var(--small-font-size);
+}
+
+/* Contact info items - each on separate line */
+.contact__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.contact__info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    width: 100%;
+}
+
+.contact__info-item i {
+    font-size: 1.5rem;
+    color: var(--first-color);
+    min-width: 1.5rem;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+}
+
+.contact__info-text {
+    color: var(--white-color);
+    word-break: normal;
+    white-space: normal;
+    flex: 1;
+}
+
+/* Availability wrapper - STACKS VERTICALLY */
+.availability__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.available-text {
+    color: var(--white-color);
+    font-weight: 500;
+}
+
+/* Schedule button */
+.schedule-btn {
+    background: var(--first-color);
+    color: var(--black-color);
+    padding: 0.5rem 1.25rem;
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+}
+
+.schedule-btn:hover {
+    background: var(--first-color-alt);
+    transform: translateY(-2px);
+}
+
+/* Schedule dropdown */
+.schedule-dropdown {
+    display: none;
+    background: var(--container-color);
+    border-radius: 0.75rem;
+    padding: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 0.25rem;
+}
+
+.schedule-dropdown.show {
+    display: block;
+}
+
+.schedule-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.schedule-row:last-child {
+    border-bottom: none;
+}
+
+.schedule-row strong {
+    color: var(--white-color);
+    min-width: 45px;
+}
+
+.schedule-row .closed {
+    color: #ff6b6b;
+}
+
+.schedule-row .open {
+    color: #51cf66;
+}
+
+.schedule-row .not-set {
+    color: #ffd43b;
+}
+
+/* Social links */
+.contact__social {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.contact__social a {
+    color: var(--white-color);
+    font-size: 1.5rem;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.contact__social a:hover {
+    transform: translateY(-0.25rem);
+    color: var(--first-color);
+}
+
+/* Responsive - INCREASE WIDTH FOR LARGER SCREENS */
+@media screen and (min-width: 540px) {
+    .contact__container {
+        grid-template-columns: 450px;
+        justify-content: center;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .contact__container {
+        grid-template-columns: repeat(2, 380px);
+        column-gap: 3rem;
+    }
+    .contact__form {
+        order: 1;
+    }
+}
+
+@media screen and (min-width: 1150px) {
+    .contact {
+        padding-bottom: 6rem;
+    }
+    
+    .contact__container {
+        grid-template-columns: 380px 500px;
+        column-gap: 6rem;
+    }
+    
+    .contact__content {
+        width: 100%;
+    }
+    
+    .contact__area {
+        height: 14rem;
+    }
+    
+    .contact__info-text {
+        white-space: nowrap;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .contact__container {
+        grid-template-columns: 450px 550px;
+        column-gap: 8rem;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .schedule-row {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .contact__info-text {
+        word-break: break-word;
+    }
+}

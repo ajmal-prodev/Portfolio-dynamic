@@ -1,0 +1,141 @@
+-- Create and use database
+CREATE DATABASE IF NOT EXISTS portfolio_db;
+USE portfolio_db;
+
+-- Table 1: about
+CREATE TABLE about (
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    description TEXT,
+    image VARCHAR(255),
+    PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Table 2: about_skills
+CREATE TABLE about_skills (
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    profile_id INT(11),
+    skill_name VARCHAR(255),
+    PRIMARY KEY (id),
+    KEY profile_id (profile_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Table 3: adminlogin_tb
+CREATE TABLE adminlogin_tb (
+    a_login_id INT(11) NOT NULL AUTO_INCREMENT,
+    a_name VARCHAR(30) NOT NULL,
+    a_email VARCHAR(30) NOT NULL,
+    a_password VARCHAR(20) NOT NULL,
+    atheme ENUM('light', 'dark') DEFAULT 'light',
+    a_created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+    a_otp VARCHAR(8),
+    a_otp_expiry DATETIME(6),
+    a_verified TINYINT(1) NOT NULL DEFAULT 0,
+    PRIMARY KEY (a_login_id)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+-- Table 4: contact
+CREATE TABLE contact (
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    gmail VARCHAR(255),
+    phone VARCHAR(20),
+    location VARCHAR(255),
+    availability_text TEXT,
+    whatsapp VARCHAR(255),
+    instagram VARCHAR(255),
+    telegram VARCHAR(255),
+    PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Table 5: footer
+CREATE TABLE footer (
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    facebook VARCHAR(255),
+    instagram VARCHAR(255),
+    twitter_x VARCHAR(255),
+    youtube VARCHAR(255),
+    PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Table 6: home
+CREATE TABLE home (
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    designation LONGTEXT,
+    name VARCHAR(255) NOT NULL,
+    image VARCHAR(255),
+    description TEXT,
+    resume VARCHAR(255),
+    linkedin VARCHAR(255),
+    github VARCHAR(255),
+    instagram VARCHAR(255),
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP() ON UPDATE CURRENT_TIMESTAMP(),
+    PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Table 7: projects
+CREATE TABLE projects (
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    title VARCHAR(255),
+    description TEXT,
+    link VARCHAR(255),
+    image VARCHAR(255),
+    PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Table 8: resume_education
+CREATE TABLE resume_education (
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    degree VARCHAR(255),
+    institution VARCHAR(255),
+    start_date DATE,
+    end_date DATE,
+    PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Table 9: resume_experience
+CREATE TABLE resume_experience (
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    designation VARCHAR(255),
+    company VARCHAR(255),
+    start_date DATE,
+    end_date DATE,
+    PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Table 10: services
+CREATE TABLE services (
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    icon_class VARCHAR(100),
+    designation VARCHAR(255),
+    description TEXT,
+    link VARCHAR(255),
+    PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Table 11: contact_message
+CREATE TABLE `contact_messages` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `name` varchar(100) NOT NULL,
+    `email` varchar(100) NOT NULL,
+    `message` text NOT NULL,
+    `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `status` enum('unread', 'read', 'replied') DEFAULT 'unread',
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+
+-- Table 12: themes
+CREATE TABLE themes (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    hue_value INT NOT NULL DEFAULT 180,
+    first_color_saturation INT NOT NULL DEFAULT 80,
+    first_color_lightness INT NOT NULL DEFAULT 48,
+    is_active BOOLEAN DEFAULT TRUE
+);
+
+-- Insert default cyan theme
+INSERT INTO themes (hue_value, first_color_saturation, first_color_lightness, is_active) 
+VALUES (180, 80, 48, 1);
+
+

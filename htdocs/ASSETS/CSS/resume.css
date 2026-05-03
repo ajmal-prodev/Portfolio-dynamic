@@ -1,0 +1,292 @@
+/*=============== RESUME ===============*/
+.resume__container {
+  row-gap: 4rem;
+}
+
+.resume__subtitle {
+  display: flex;
+  align-items: center;
+  column-gap: .5rem;
+  font-size: var(--h3-font-size);
+  color: var(--first-color);
+  margin-bottom: 1.5rem;
+}
+
+.resume__subtitle i {
+  font-size: 1.5rem;
+  font-weight: initial;
+}
+
+.resume__title {
+  font-size: var(--h3-font-size);
+  margin-bottom: 0.5rem;
+}
+
+.resume__info {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1.5rem;
+  row-gap: 0.5rem;
+  font-size: var(--small-font-size);
+  color: var(--gray-color);
+  margin-bottom: 0.5rem;
+}
+
+.resume__info address {
+  font-style: initial;
+}
+
+.resume__data {
+  display: grid;
+  row-gap: 0.5rem;
+}
+
+/* FIX: Ensure each column is completely independent */
+.resume__container.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;  /* Two equal columns */
+  gap: 2rem;
+  align-items: start;  /* Align columns at the top, not stretch */
+}
+
+/* Each column content */
+.resume__content {
+  display: flex;
+  flex-direction: column;
+  height: auto;  /* Let each column grow independently */
+}
+
+.resume__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+/* Make sure items don't affect other column */
+.resume__data {
+  break-inside: avoid;  /* Prevent breaking across columns */
+  page-break-inside: avoid;
+}
+
+/* New structure for aligned items (keep for compatibility) */
+.resume__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.resume__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.resume__item {
+  display: grid;
+  row-gap: 0.5rem;
+}
+
+/*=============== BREAKPOINTS ===============*/
+
+/* For mobile devices */
+@media screen and (max-width: 767px) {
+  .resume__container.grid {
+    grid-template-columns: 1fr;  /* Stack on mobile */
+    gap: 2.5rem;
+    padding: 0 1rem; /* Add padding for mobile */
+  }
+  
+  .resume__subtitle {
+    margin-bottom: 1.2rem;
+    font-size: 1.3rem;
+  }
+  
+  .resume__list {
+    gap: 1.5rem;
+  }
+  
+  .resume__title {
+    font-size: 1.2rem;
+    margin-bottom: 0.4rem;
+  }
+  
+  .resume__info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .resume__info address {
+    font-size: 0.85rem;
+  }
+  
+  .resume__description {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-top: 0.25rem;
+  }
+  
+  .resume__data {
+    row-gap: 0.4rem;
+    padding-bottom: 0.5rem;
+  }
+}
+
+/* For small mobile devices */
+@media screen and (max-width: 480px) {
+  .resume__container.grid {
+    gap: 2rem;
+    padding: 0 0.75rem;
+  }
+  
+  .resume__subtitle {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+  
+  .resume__subtitle i {
+    font-size: 1.2rem;
+  }
+  
+  .resume__list {
+    gap: 1.2rem;
+  }
+  
+  .resume__title {
+    font-size: 1.1rem;
+  }
+  
+  .resume__info {
+    column-gap: 1rem;
+  }
+  
+  .resume__info address {
+    font-size: 0.8rem;
+  }
+  
+  .resume__description {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (min-width: 540px) and (max-width: 767px) {
+  .resume__container {
+    grid-template-columns: minmax(400px, 500px);
+    justify-content: center;
+  }
+  
+  .resume__row {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .resume__info {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+/* For tablets */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .resume__container.grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.8rem;
+  }
+  
+  .resume__subtitle {
+    margin-bottom: 1.3rem;
+  }
+  
+  .resume__list {
+    gap: 1.6rem;
+  }
+  
+  .resume__info {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+}
+
+/* For desktop - maintain two columns */
+@media screen and (min-width: 768px) {
+  .resume__container.grid {
+    grid-template-columns: 1fr 1fr;  /* Two columns side by side */
+    gap: 2rem;
+  }
+  
+  .resume__row {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+/* For large devices */
+@media screen and (min-width: 1150px) {
+  .container {
+    margin-inline: auto;
+  }
+
+  .section {
+    padding-block: 7rem 2rem;
+  }
+
+  .section__title {
+    margin-bottom: 3rem;
+  }
+
+  .resume {
+    padding-block: 8rem 4rem;
+  }
+
+  .resume__container {
+    max-width: 1000px;
+  }
+  
+  .resume__row {
+    gap: 7rem;
+  }
+  
+  .resume__list {
+    gap: 2rem;
+  }
+  
+  .resume__subtitle {
+    margin-bottom: 1.8rem;
+  }
+  
+  .resume__title {
+    margin-bottom: 0.6rem;
+  }
+  
+  .resume__info {
+    margin-bottom: 0.6rem;
+  }
+}
+
+/* Additional styling for better visual consistency */
+.resume__data {
+  transition: transform 0.2s ease;
+}
+
+.resume__data:hover {
+  transform: translateX(5px);
+}
+
+/* Make period styling consistent */
+.resume__info address:last-child {
+  color: var(--first-color);
+  font-weight: 500;
+}
+
+/* Add separator between items for better readability */
+.resume__data:not(:last-child) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding-bottom: 1rem;
+}
+
+@media screen and (max-width: 767px) {
+  .resume__data:not(:last-child) {
+    padding-bottom: 0.8rem;
+  }
+}
